@@ -12,7 +12,7 @@ public class TextActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text);
-        String value=getIntent().getExtras().getString("info");
+        String value = getIntent().getExtras().getString("info");
         TextView tt1 = (TextView) findViewById(R.id.t);
         tt1.setText(value);
     }

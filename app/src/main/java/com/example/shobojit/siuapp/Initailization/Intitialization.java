@@ -38,33 +38,32 @@ private class ShuvojitHandler implements OneSignal.NotificationOpenedHandler{
     @Override
     public void notificationOpened(OSNotificationOpenResult result) {
         JSONObject data = result.notification.payload.additionalData;
-        String value="info";
-        String Image="img";
+        String value = "info";
+        String Image = "img";
 
 
 
-        if(data.has(value)){
-            try {
-                Intent intent = new Intent(getApplicationContext(), TextActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("info",data.getString(value));
-                startActivity(intent);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (data.has(value)) {
+                try {
+                    Intent intent = new Intent(getApplicationContext(), TextActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("info", data.getString(value));
+                    startActivity(intent);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            } else if (data.has(Image)) {
+                try {
+                    Intent intent2 = new Intent(getApplicationContext(), ImageActivity.class);
+                    intent2.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent2.putExtra("img", data.getString(Image));
+                    startActivity(intent2);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+
             }
-
-        } else if(data.has(Image)){
-            try {
-                Intent intent2 = new Intent(getApplicationContext(), ImageActivity.class);
-                intent2.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent2.putExtra("img",data.getString(Image));
-                startActivity(intent2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
         }
-
     }
 }
 }
