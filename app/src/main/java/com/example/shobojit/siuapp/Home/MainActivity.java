@@ -267,7 +267,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
+                        System.exit(1);
                     }
                 });
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
@@ -297,7 +297,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         else if(menuitem==R.id.website){
             if(haveNetworkConnection()==false)
-            AlertMessage.showMessage(con,R.drawable.alertpic,"Alert","No Internet Connection");
+                Snackbar.make(findViewById(R.id.toolbar),"No Internet Connection",Snackbar.LENGTH_LONG)
+                        .show();
+           // AlertMessage.showMessage(con,R.drawable.alertpic,"Alert","No Internet Connection");
             else
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://siu.edu.bd/")));
         }
@@ -314,14 +316,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         else if(menuitem==R.id.calender) {
             if(haveNetworkConnection()==false)
-               AlertMessage.showMessage(con,R.drawable.alertpic,"Alert","No Internet Connection");
+              Snackbar.make(findViewById(R.id.toolbar),"No Internet Connection",Snackbar.LENGTH_LONG).show();
+               //AlertMessage.showMessage(con,R.drawable.alertpic,"Alert","No Internet Connection");
             else
                StartActivity.toActivity(MainActivity.this, Academic_Calender.class);
         }
 
         else if(menuitem==R.id.notice){
             if(haveNetworkConnection()==false)
-                AlertMessage.showMessage(con,R.drawable.alertpic,"Alert","No Internet Connection");
+              Snackbar.make(findViewById(R.id.toolbar),"No Internet Connection",Snackbar.LENGTH_LONG).show();
+                //AlertMessage.showMessage(con,R.drawable.alertpic,"Alert","No Internet Connection");
             else
             startActivity(new Intent(MainActivity.this,Notice_Activity.class));
         }

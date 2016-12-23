@@ -1,9 +1,11 @@
 package com.example.shobojit.siuapp.Home.FragmentContainer;
 
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,18 +53,38 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
                     fab_man.setVisibility(View.GONE);
                     fab_man.setClickable(false);
                     fab_exit.setClickable(false);
-                    isOpen=false;
-                }
+                    isOpen=false; }
                 else {
                     fab_man.startAnimation(fab_open);
                     fab_exit.startAnimation(fab_open);
                     fab.startAnimation(fab_rotate);
                     fab_man.setClickable(true);
                     fab_exit.setClickable(true);
+                    isOpen=true; }
+            } });
 
-                    isOpen=true;
+        fab_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+                alertDialog.setTitle("Alert");
+                alertDialog.setIcon(R.drawable.alertpic);
+                alertDialog.onWindowFocusChanged(true);
+                alertDialog.setMessage("Are you sure you want to exit?");
+                alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                System.exit(1);
+                            }
+                        });
+                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
 
-                }
             }
         });
         return v;
