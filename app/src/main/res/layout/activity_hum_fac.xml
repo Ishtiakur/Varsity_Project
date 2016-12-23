@@ -24,23 +24,29 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
+            android:padding="10dp"
             android:layout_height="wrap_content">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
-                android:textColor="#000"
-                android:background="@color/colorPrimaryDark"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="English"/>
+                android:padding="10dp"
+                android:textColor="#413e3e"
+                android:textStyle="bold"
+                android:background="#009688"
+                android:backgroundTint="#4DB6AC"
+                android:text="English"
+                android:id="@+id/textView20" />
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="  Faculty Members"
                 android:textSize="15sp"
                 android:id="@+id/csefac"
-                android:background="#9575cd"
-                android:backgroundTint="#b39ddb"
+                android:background="#80CBC4"
+                android:backgroundTint="#B2DFDB"
                 android:gravity="center_vertical"/>
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
@@ -51,15 +57,22 @@
                 android:text="  Syllabus"
                 android:textSize="15sp"
                 android:id="@+id/csesyl"
-                android:background="#9575cd"
-                android:backgroundTint="#b39ddb"
+                android:background="#80CBC4"
+                android:backgroundTint="#B2DFDB"
                 android:gravity="center_vertical"/>
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="2dp" />
-            <android.support.v4.widget.Space
+            <Button
                 android:layout_width="match_parent"
-                android:layout_height="2dp" />
+                android:layout_height="wrap_content"
+                android:text="  English Debating Club"
+                android:textSize="15sp"
+
+                android:background="#80CBC4"
+                android:backgroundTint="#B2DFDB"
+                android:gravity="center_vertical"/>
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

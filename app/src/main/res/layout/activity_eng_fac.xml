@@ -37,20 +37,24 @@ tools:context="com.example.shobojit.siuapp.Home.Faculty_Activity.Eng_fac">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="25sp"
-                    android:textColor="#000"
-                    android:background="@color/colorPrimaryDark"
-                    android:backgroundTint="@color/colorPrimary"
+                    android:textSize="20sp"
+                    android:padding="10dp"
+                    android:textColor="#413e3e"
+                    android:textStyle="bold"
+                    android:background="#009688"
+                    android:backgroundTint="#4DB6AC"
                     android:text="Computer Science and Engineering"/>
+
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="  Faculty Members"
                     android:textSize="15sp"
                     android:id="@+id/csefac"
-                    android:background="#9575cd"
-                    android:backgroundTint="#b39ddb"
+                    android:background="#80CBC4"
+                    android:backgroundTint="#B2DFDB"
                     android:gravity="center_vertical"/>
+
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
                     android:layout_height="2dp" />
@@ -60,21 +64,23 @@ tools:context="com.example.shobojit.siuapp.Home.Faculty_Activity.Eng_fac">
                     android:text="  Syllabus"
                     android:textSize="15sp"
                     android:id="@+id/csesyl"
-                    android:background="#9575cd"
-                    android:backgroundTint="#b39ddb"
+                    android:background="#80CBC4"
+                    android:backgroundTint="#B2DFDB"
                     android:gravity="center_vertical"/>
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
                     android:layout_height="2dp" />
+
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="  Lab"
                     android:id="@+id/cselab"
                     android:textSize="15sp"
-                    android:background="#9575cd"
-                    android:backgroundTint="#b39ddb"
+                    android:background="#80CBC4"
+                    android:backgroundTint="#B2DFDB"
                     android:gravity="center_vertical"/>
+
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
                     android:layout_height="2dp" />
@@ -90,22 +96,27 @@ tools:context="com.example.shobojit.siuapp.Home.Faculty_Activity.Eng_fac">
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="25sp"
-                    android:textColor="#000"
-                    android:background="@color/colorPrimaryDark"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:text="Computer Science and Informatics"/>
+                    android:textSize="20sp"
+                    android:textColor="#413e3e"
+                    android:textStyle="bold"
+                    android:padding="10dp"
+                    android:background="#009688"
+                    android:backgroundTint="#4DB6AC"
+                    android:text="Computer Science and Informatics"
+                    android:id="@+id/textView19" />
+
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="  Faculty Members"
                     android:textSize="15sp"
                     android:id="@+id/csifac"
-                    android:background="#9575cd"
-                    android:backgroundTint="#b39ddb"
+                    android:background="#80CBC4"
+                    android:backgroundTint="#B2DFDB"
                     android:gravity="center_vertical"/>
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
@@ -117,8 +128,8 @@ tools:context="com.example.shobojit.siuapp.Home.Faculty_Activity.Eng_fac">
                     android:text="  Syllabus"
                     android:textSize="15sp"
                     android:id="@+id/csisyl"
-                    android:background="#9575cd"
-                    android:backgroundTint="#b39ddb"
+                    android:background="#80CBC4"
+                    android:backgroundTint="#B2DFDB"
                     android:gravity="center_vertical"/>
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
@@ -130,8 +141,8 @@ tools:context="com.example.shobojit.siuapp.Home.Faculty_Activity.Eng_fac">
                     android:text="  Lab"
                     android:id="@+id/csilab"
                     android:textSize="15sp"
-                    android:background="#9575cd"
-                    android:backgroundTint="#b39ddb"
+                    android:background="#80CBC4"
+                    android:backgroundTint="#B2DFDB"
                     android:gravity="center_vertical"/>
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
@@ -148,14 +159,19 @@ tools:context="com.example.shobojit.siuapp.Home.Faculty_Activity.Eng_fac">
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="25sp"
-                    android:textColor="#000"
-                    android:background="@color/colorPrimaryDark"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:text="Electronics and Communication Engineering"/>
+                    android:textSize="20sp"
+                    android:padding="10dp"
+                    android:textColor="#413e3e"
+                    android:textStyle="bold"
+                    android:background="#009688"
+                    android:backgroundTint="#4DB6AC"
+                    android:text="Electronics and Communication Engineering"
+                    android:id="@+id/textView18" />
+
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
                     android:layout_height="2dp" />
@@ -166,8 +182,8 @@ tools:context="com.example.shobojit.siuapp.Home.Faculty_Activity.Eng_fac">
                     android:text="  Faculty Members"
                     android:textSize="15sp"
                     android:id="@+id/ecefac"
-                    android:background="#9575cd"
-                    android:backgroundTint="#b39ddb"
+                    android:background="#80CBC4"
+                    android:backgroundTint="#B2DFDB"
                     android:gravity="center_vertical"/>
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
@@ -178,8 +194,8 @@ tools:context="com.example.shobojit.siuapp.Home.Faculty_Activity.Eng_fac">
                     android:text="  Syllabus"
                     android:textSize="15sp"
                     android:id="@+id/ecesyl"
-                    android:background="#9575cd"
-                    android:backgroundTint="#b39ddb"
+                    android:background="#80CBC4"
+                    android:backgroundTint="#B2DFDB"
                     android:gravity="center_vertical"/>
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"
@@ -191,8 +207,8 @@ tools:context="com.example.shobojit.siuapp.Home.Faculty_Activity.Eng_fac">
                     android:text="  Lab"
                     android:id="@+id/ecelab"
                     android:textSize="15sp"
-                    android:background="#9575cd"
-                    android:backgroundTint="#b39ddb"
+                    android:background="#80CBC4"
+                    android:backgroundTint="#B2DFDB"
                     android:gravity="center_vertical"/>
                 <android.support.v4.widget.Space
                     android:layout_width="match_parent"

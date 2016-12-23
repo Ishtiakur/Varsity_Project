@@ -2,6 +2,7 @@ package com.example.shobojit.siuapp.OneSignalActivity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,10 +19,13 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 public class ImageActivity extends AppCompatActivity {
     CatLoadingView mView;
     PhotoViewAttacher mAttacher;
+    Toolbar tl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
+        tl = (Toolbar) findViewById(R.id.notification);
+        tl.setTitle(" Notification");
         String value = getIntent().getExtras().getString("img");
         ImageView img = (ImageView) findViewById(R.id.im);
         mView = new CatLoadingView();

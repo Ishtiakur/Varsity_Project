@@ -35,15 +35,17 @@
         <activity android:name=".Home.Faculty_Activity.Law_fac" />
         <activity android:name=".Home.Faculty_Activity.Hum_fac" />
         <activity android:name=".Home.Faculty_Activity.Buc_fac" />
-        <meta-data android:name="com.onesignal.NotificationOpened.DEFAULT" android:value="DISABLE" />
+
+        <meta-data
+            android:name="com.onesignal.NotificationOpened.DEFAULT"
+            android:value="DISABLE" />
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="c5fb3b7fba176c02aba7cdee2197e7ccf34a22f7" />
 
         <activity android:name=".OneSignalActivity.TextActivity" />
-        <activity android:name=".OneSignalActivity.ImageActivity"/>
-
-
+        <activity android:name=".OneSignalActivity.ImageActivity" />
+        <activity android:name=".Home.Activity.Notice_Detail_02"></activity>
     </application>
 
 </manifest>

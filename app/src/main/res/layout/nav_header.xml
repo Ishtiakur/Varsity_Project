@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:orientation="vertical"
     android:scaleType="fitXY"
-    android:background="@drawable/siu_garden"
+    android:background="@drawable/campus"
     android:layout_width="match_parent"
     android:layout_height="200dp">
 
@@ -33,4 +34,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/tt1"
         android:layout_alignStart="@+id/tt1" />
+
+
 </RelativeLayout>

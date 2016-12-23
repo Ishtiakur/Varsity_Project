@@ -16,7 +16,7 @@ import com.aapbd.appbajarlib.notification.BusyDialog;
 import com.example.shobojit.siuapp.Home.model.ArrayAdap;
 import com.example.shobojit.siuapp.R;
 import com.roger.catloadinglibrary.CatLoadingView;
-import com.tt.whorlviewlibrary.WhorlView;
+
 
 
 import org.jsoup.Jsoup;
@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class Notice_Activity extends AppCompatActivity {
     ListView lv;
     Toolbar tl;
-    WhorlView whorlView;
+
     private Context cn;
     ArrayList<String> link = new ArrayList<String>();
     @Override
@@ -43,7 +43,12 @@ public class Notice_Activity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent in = new Intent(cn,NoticeDetail.class);
+              /*  Intent in = new Intent(cn,NoticeDetail.class);
+                in.putExtra("link",link.get(position));
+                startActivity(in);*/
+
+
+                Intent in = new Intent(cn,Notice_Detail_02.class);
                 in.putExtra("link",link.get(position));
                 startActivity(in);
             }

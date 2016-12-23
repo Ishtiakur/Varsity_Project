@@ -548,8 +548,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:text="Waiver Rates
-At present, waivers are given to the students of SIU according to the following principles and rates - "
+                        android:text="Waiver Rates"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:background="@color/colorPrimary"
