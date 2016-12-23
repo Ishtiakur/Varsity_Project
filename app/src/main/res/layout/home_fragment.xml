@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
@@ -56,6 +57,7 @@
                             android:id="@+id/chairmanimage"
                             android:layout_width="match_parent"
                             android:layout_height="250dp" />
+
 
                             <TextView
                             android:layout_width="match_parent"
@@ -116,4 +118,45 @@
                 android:layout_height="20dp" />
             </LinearLayout>
         </ScrollView>
-    </RelativeLayout>
+
+
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="16dp"
+        android:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        app:backgroundTint="@color/fab_exit"
+        android:src="@drawable/fab_exit"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="180dp"
+        android:id="@+id/fab_exit" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="16dp"
+        android:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        app:backgroundTint="@color/fab_man"
+        android:visibility="invisible"
+        android:src="@drawable/fab_man"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:id="@+id/fab_man" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="16dp"
+        android:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        android:src="@drawable/ic_action_fab"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/fab" />
+</android.support.design.widget.CoordinatorLayout>
