@@ -68,5 +68,8 @@ dependencies {
     }
     compile 'com.github.chrisbanes.photoview:library:1.2.4'
     compile project(':catloadinglibrary')
+
+
+    compile 'com.github.mancj:SlideUp-Android:1.0-beta'
 }
 

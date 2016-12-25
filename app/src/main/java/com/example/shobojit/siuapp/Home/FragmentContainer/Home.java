@@ -20,12 +20,17 @@ import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.shobojit.siuapp.R;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.mancj.slideup.SlideUp;
+
 import java.util.HashMap;
 
 public class Home extends Fragment  implements  BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
     TextView ttday,ttdate,ttmonth,tttime;
     private SliderLayout mDemoSlider;
     String HomeText , ChairText, VcText;
+    private SlideUp slideUp;
+    private View dim;
+    private View slideView;
     WebView wv1,wv2,wv3;
     SimpleDraweeView ChairmanImage,VCImage;
     FloatingActionButton fab,fab_man,fab_exit;
@@ -53,7 +58,8 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
                     fab_man.setVisibility(View.GONE);
                     fab_man.setClickable(false);
                     fab_exit.setClickable(false);
-                    isOpen=false; }
+                    isOpen=false;
+                }
                 else {
                     fab_man.startAnimation(fab_open);
                     fab_exit.startAnimation(fab_open);
@@ -62,6 +68,49 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
                     fab_exit.setClickable(true);
                     isOpen=true; }
             } });
+
+        slideView = v.findViewById(R.id.slideView);
+//        dim = v.findViewById(R.id.dim);
+        slideUp = new SlideUp(slideView);
+        slideUp.hideImmediately();
+
+        fab_man.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                slideUp.animateIn();
+                fab_man.startAnimation(fab_clos);
+                fab_exit.startAnimation(fab_clos);
+                fab.startAnimation(fab_rotate_back);
+                fab_exit.setVisibility(View.GONE);
+                fab_man.setVisibility(View.GONE);
+                fab_man.setClickable(false);
+                fab_exit.setClickable(false);
+                isOpen=false;
+                fab.hide();
+
+
+            }
+        });
+
+        slideUp.setSlideListener(new SlideUp.SlideListener() {
+
+            @Override
+            public void onSlideDown(float v) {
+
+            }
+            @Override
+            public void onVisibilityChanged(int visibility) {
+                if (visibility == View.GONE)
+                {
+                    fab.show();
+
+                }
+            }
+        });
+
+
+
+
 
         fab_exit.setOnClickListener(new View.OnClickListener() {
             @Override

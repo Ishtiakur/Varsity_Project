@@ -20,6 +20,7 @@ public class Cse_syl extends AppCompatActivity {
     void Intialization(){
         tl= (Toolbar) findViewById(R.id.csesyltool);
         setSupportActionBar(tl);
+        getSupportActionBar().setTitle("Syllabus");
         if(getSupportActionBar()!=null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
