@@ -1,11 +1,13 @@
 package com.example.shobojit.siuapp.Home.FragmentContainer;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
@@ -20,8 +24,21 @@ import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.shobojit.siuapp.R;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.mancj.slideup.SlideUp;
 
+
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class Home extends Fragment  implements  BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
@@ -31,10 +48,15 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
     private SlideUp slideUp;
     private View dim;
     private View slideView;
+    public PieChart pieChart;
     WebView wv1,wv2,wv3;
-    SimpleDraweeView ChairmanImage,VCImage;
+
     FloatingActionButton fab,fab_man,fab_exit;
     Animation fab_open,fab_clos,fab_rotate,fab_rotate_back;
+
+    private float[] yData = {45.6f, 40.15f, 30.12f, 56.55f};
+    private String[] xData = {"School of Engineering", "School of Laws" , "School of Humanities" , "School of Business"};
+
     View v;
     boolean isOpen =false;
     @Override
@@ -43,9 +65,11 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
 
         Text ();
         TextViewIntailization(v);
+        Graph(v);
+        ClockInit(v);
         SliderIntailization(v);
         FloatingIntialization(v);
-        ImageInitailaization(v);
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +94,6 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
             } });
 
         slideView = v.findViewById(R.id.slideView);
-//        dim = v.findViewById(R.id.dim);
         slideUp = new SlideUp(slideView);
         slideUp.hideImmediately();
 
@@ -87,17 +110,11 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
                 fab_exit.setClickable(false);
                 isOpen=false;
                 fab.hide();
-
-
             }
         });
-
         slideUp.setSlideListener(new SlideUp.SlideListener() {
-
             @Override
-            public void onSlideDown(float v) {
-
-            }
+            public void onSlideDown(float v) {}
             @Override
             public void onVisibilityChanged(int visibility) {
                 if (visibility == View.GONE)
@@ -107,10 +124,6 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
                 }
             }
         });
-
-
-
-
 
         fab_exit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,58 +153,141 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
     }
 
 
+    public void Graph (View v){
+        pieChart = (PieChart) v.findViewById(R.id.chart);
+        pieChart.setRotationEnabled(true);
+        pieChart.setHoleRadius(25f);
+        pieChart.setTransparentCircleAlpha(0);
+        pieChart.setCenterText("Statistic");
+        pieChart.setCenterTextSize(10);
 
 
+       pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+
+
+               /* int pos1 = e.toString().indexOf("(sum): ");
+                String total = e.toString().substring(pos1 );
+
+                for(int i = 0; i < yData.length; i++){
+                    if(yData[i] == Float.parseFloat(total)){
+                        pos1 = i;
+                        break;
+                    }
+                }
+                String statistic = xData[pos1 + 1];*/
+                String res =e.toString();
+                //Entry, x: 0.0 y: 40.15 red
+                //Entry, x: 0.0 y: 45.6 blue
+                //Entry, x: 0.0 y: 56.55 yello
+                //Entry, x: 0.0 y: 30.12 green
+                int i= 0;
+                if(res.equalsIgnoreCase("Entry, x: 0.0 y: 40.15")){
+                    i=0;
+                }else if(res.equalsIgnoreCase("Entry, x: 0.0 y: 45.6")){
+                    i=1;
+                }else if(res.equalsIgnoreCase("Entry, x: 0.0 y: 56.55")){
+                    i=2;
+                }else {
+                    i=3;
+                }
+                Log.i("value",e.toString());
+                Toast.makeText(getActivity(),xData[i],Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),  e + " : "+ h , Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
+
+        addDataSet();
+
+}
+
+    private void addDataSet() {
+
+        ArrayList<PieEntry> yEntrys = new ArrayList<>();
+        ArrayList<String> xEntrys = new ArrayList<>();
+
+        for(int i = 0; i < yData.length; i++){
+            yEntrys.add(new PieEntry(yData[i] , i));
+        }
+
+        for(int i = 1; i < xData.length; i++){
+            xEntrys.add(xData[i]);
+        }
+
+        //create the data set
+        PieDataSet pieDataSet = new PieDataSet(yEntrys, "Student Statistic");
+        pieDataSet.setSliceSpace(2);
+        pieDataSet.setValueTextSize(12);
+        //add colors to dataset
+        ArrayList<Integer> colors = new ArrayList<>();
+
+        colors.add(Color.BLUE);
+        colors.add(Color.RED);
+        colors.add(Color.GREEN);
+        colors.add(Color.YELLOW);
+        pieDataSet.setColors(colors);
+        //add legend to chart
+        Legend legend = pieChart.getLegend();
+        legend.setForm(Legend.LegendForm.CIRCLE);
+        legend.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
+
+        //create pie data object
+        PieData pieData = new PieData(pieDataSet);
+        pieChart.setData(pieData);
+        pieChart.invalidate();
+    }
 
     public void FloatingIntialization(View v){
         fab = (FloatingActionButton) v.findViewById(R.id.fab);
         fab_man = (FloatingActionButton) v.findViewById(R.id.fab_man);
         fab_exit = (FloatingActionButton) v.findViewById(R.id.fab_exit);
 
-
         //For Animation
         fab_open = AnimationUtils.loadAnimation(getContext(),R.anim.fab_open);
         fab_clos = AnimationUtils.loadAnimation(getContext(),R.anim.fab_close);
         fab_rotate = AnimationUtils.loadAnimation(getContext(),R.anim.fab_rotat);
         fab_rotate_back= AnimationUtils.loadAnimation(getContext(),R.anim.fab_rotate_back);
-
     }
 
 
 
     public void Text (){
-        ChairText = "<html><body>"
-                + "<p align=\"justify\">"+"<font size=\"3.5\">" + getString(R.string.chairman1) +"</font>"+"</p> "
-                + "<p align=\"justify\">"+"<font size=\"3.5\">"+ getString(R.string.chairman2) +"</font>"+"</p> "
-                + "<p align=\"justify\">"+"<font size=\"3.5\">" + getString(R.string.chairman3) +"</font>"+ "</p> "
-                + "<p align=\"justify\">"+"<font size=\"3.5\">"+ getString(R.string.chairman4) +"</font>"+"</p> "
-                + "</body></html>";
-
         HomeText = "<html><body>"
                 + "<p align=\"justify\">"+"<font size=\"3.5\">" + getString(R.string.Home1) +"</font>"+"</p> "
                 + "<p align=\"justify\">"+"<font size=\"3.5\">"+ getString(R.string.Home2) +"</font>"+ "</p> "
                 + "<p align=\"justify\">"+"<font size=\"3.5\">" + getString(R.string.Home3) +"</font>"+"</p> "
                 + "<p align=\"justify\">"+"<font size=\"3.5\">"+ getString(R.string.Home4) +"</font>"+ "</p> "
                 + "</body></html>";
-
-        VcText = "<html><body>"
-                + "<p align=\"justify\">"+"<font size=\"3.5\">"+ getString(R.string.vc1) +"</font>"+ "</p> "
-                + "<p align=\"justify\">"+"<font size=\"3.5\">"+ getString(R.string.vc2) +"</font>"+ "</p> "
-                + "<p align=\"justify\">"+"<font size=\"3.5\">" + getString(R.string.vc3) +"</font>"+ "</p> "
-                + "</body></html>";
     }
 
+
+
+    public void ClockInit(View v){
+        ttday= (TextView) v.findViewById(R.id.ttday);
+        ttdate= (TextView) v.findViewById(R.id.ttdate);
+        ttmonth= (TextView) v.findViewById(R.id.ttmonth);
+
+        String []day = {"Sunday","Monday","Tuesday","Wednesday","Wednesday","Friday","Saturday"};
+        Calendar c = Calendar.getInstance();
+        ttday.setText(day[c.getTime().getDay()]);
+        SimpleDateFormat df = new SimpleDateFormat("dd");
+        ttdate.setText(df.format(c.getTime()));
+        SimpleDateFormat d2 = new SimpleDateFormat("MMMMMM");
+        ttmonth.setText( d2.format(c.getTime()));
+
+    }
 
 
     public void TextViewIntailization(View v){
         wv1 = (WebView) v.findViewById(R.id.NormalText);
         wv1.loadData(HomeText, "text/html", "utf-8");
 
-        wv2 = (WebView) v.findViewById(R.id.chairmanText);
-        wv2.loadData(ChairText, "text/html", "utf-8");
-
-        wv3 = (WebView) v.findViewById(R.id.vctext);
-        wv3.loadData(VcText, "text/html", "utf-8");
     }
 
 
@@ -232,17 +328,6 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
 
 
 
-    public void ImageInitailaization(View v){
-        ChairmanImage= (SimpleDraweeView) v.findViewById(R.id.chairmanimage);
-        String ChairmanImagepath="res:/" + R.drawable.chairman;
-        String VCImagepath="res:/" + R.drawable.vc;
-        //ChairmanImage.setImageURI(Uri.parse("http://siu.edu.bd/wp-content/uploads/2015/09/chairman-sir1-1023x450.jpg"));
-        ChairmanImage.setImageURI(Uri.parse(ChairmanImagepath));
-        VCImage= (SimpleDraweeView) v.findViewById(R.id.vcimage);
-        //VCImage.setImageURI(Uri.parse("http://siu.edu.bd/wp-content/uploads/2015/09/vc.jpg"));
-        VCImage.setImageURI(Uri.parse(VCImagepath));
-
-    }
 
 
     @Override

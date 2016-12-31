@@ -22,6 +22,8 @@ import android.widget.FrameLayout;
 import com.aapbd.appbajarlib.nagivation.StartActivity;
 import com.aapbd.appbajarlib.notification.AlertMessage;
 import com.example.shobojit.siuapp.Home.Activity.Academic_Calender;
+import com.example.shobojit.siuapp.Home.FragmentContainer.Chairman;
+import com.example.shobojit.siuapp.Home.FragmentContainer.Chancellor;
 import com.example.shobojit.siuapp.Home.FragmentContainer.Facilites;
 import com.example.shobojit.siuapp.Home.Activity.Notice_Activity;
 import com.example.shobojit.siuapp.Home.FragmentContainer.Admission;
@@ -67,8 +69,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         frame = (FrameLayout) findViewById(R.id.frame);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
     }
-
-
 
     public void Toolbar(){
         setSupportActionBar(toolbar);
@@ -123,13 +123,57 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+    public void LoadChairman(){
+        FragIndex=3;
+        if(dl.isDrawerOpen(GravityCompat.START)){
+            dl.closeDrawer(GravityCompat.START);
+        }
+        getSupportActionBar().setTitle("Chairman");
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frame,new Chairman(),"Chairman Fragment")
+                        .commit();
+            }
+        };
+
+        if(runnable!=null){
+            hand.post(runnable);
+        }
+
+    }
+
+    public void LoadVC(){
+        FragIndex=2;
+        if(dl.isDrawerOpen(GravityCompat.START)){
+            dl.closeDrawer(GravityCompat.START);
+        }
+        getSupportActionBar().setTitle("Vice Chancellor");
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frame,new Chancellor(),"Chancellor Fragment")
+                        .commit();
+            }
+        };
+
+        if(runnable!=null){
+            hand.post(runnable);
+        }
+
+    }
+
+
     @Override
     public void onBackPressed() {
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if(dl.isDrawerOpen(GravityCompat.START)){
             dl.closeDrawer(GravityCompat.START);
         }
-
             if(FragIndex==1){
                 AlertDialog alertDialog = new AlertDialog.Builder(con).create();
                 alertDialog.setTitle("Alert");
@@ -159,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     public void LoadAdmission(){
-        FragIndex=2;
+        FragIndex=4;
         if(dl.isDrawerOpen(GravityCompat.START)){
             dl.closeDrawer(GravityCompat.START);
         }
@@ -181,7 +225,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     public void LoadCorner(){
-        FragIndex=8;
+        FragIndex=10;
         if(dl.isDrawerOpen(GravityCompat.START)){
             dl.closeDrawer(GravityCompat.START);
         }
@@ -203,7 +247,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     public void loadSchool(){
-        FragIndex=3;
+        FragIndex=5;
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
@@ -220,7 +264,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void loadFacilites(){
-        FragIndex=9;
+        FragIndex=11;
         Runnable run =new Runnable() {
             @Override
             public void run() {
@@ -238,7 +282,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void LoadContact(){
-        FragIndex =10;
+        FragIndex =12;
         if(dl.isDrawerOpen(GravityCompat.START)){
             dl.closeDrawer(GravityCompat.START);
         }
@@ -289,9 +333,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if(FragIndex!=1)
                 LoadHomeFragment();
         }
+        else if(menuitem==R.id.vcmenu){
+            if(FragIndex!=2)
+                LoadVC();
+        }
+        else if(menuitem==R.id.chairmanmenu){
+            if(FragIndex!=3)
+                LoadChairman();
+        }
 
         else if(menuitem==R.id.admission){
-            if(FragIndex!=2)
+            if(FragIndex!=4)
                 LoadAdmission();
         }
 
@@ -305,12 +357,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         else if(menuitem==R.id.school) {
-            if(FragIndex!=3)
+            if(FragIndex!=5)
             loadSchool();
         }
 
         else if(menuitem==R.id.facilities)
-        {   if(FragIndex!=9)
+        {   if(FragIndex!=11)
             loadFacilites();
         }
 
@@ -331,12 +383,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         else if(menuitem==R.id.americancorner) {
-            if(FragIndex !=8)
+            if(FragIndex !=10)
             LoadCorner();
         }
 
         else if(menuitem==R.id.contact) {
-            if(FragIndex !=10)
+            if(FragIndex !=12)
              LoadContact();
         }
 

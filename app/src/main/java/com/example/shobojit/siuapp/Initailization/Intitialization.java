@@ -28,7 +28,7 @@ public class Intitialization extends Application {
 
         OneSignal.startInit(this)
                 .setNotificationOpenedHandler(new ShuvojitHandler())
-                .autoPromptLocation(true)
+                /*.autoPromptLocation(true)*/
                 .init();
 
 }

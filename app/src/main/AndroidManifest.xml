@@ -45,7 +45,9 @@
 
         <activity android:name=".OneSignalActivity.TextActivity" />
         <activity android:name=".OneSignalActivity.ImageActivity" />
-        <activity android:name=".Home.Activity.Notice_Detail_02"></activity>
+        <activity android:name=".Home.Activity.Notice_Detail_02" />
+        <activity android:name=".Home.lab.cse_lab" />
+        <activity android:name=".Home.lab.ece_lab"></activity>
     </application>
 
 </manifest>

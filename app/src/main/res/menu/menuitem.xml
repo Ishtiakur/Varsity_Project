@@ -8,6 +8,18 @@
             android:icon="@drawable/m1"
 
             />
+        <item
+            android:id="@+id/vcmenu"
+            android:title="Vice Chancellor"
+            android:icon="@drawable/per"
+
+            />
+        <item
+            android:id="@+id/chairmanmenu"
+            android:title="Chairman"
+            android:icon="@drawable/per"
+
+            />
 
         <item
             android:id="@+id/admission"
