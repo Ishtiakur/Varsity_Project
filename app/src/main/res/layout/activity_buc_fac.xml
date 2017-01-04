@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:text="  Faculty Members"
                 android:textSize="15sp"
-                android:id="@+id/csefac"
+                android:id="@+id/busfac"
                 android:background="#80CBC4"
                 android:backgroundTint="#B2DFDB"
                 android:gravity="center_vertical"/>
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="  Syllabus"
                 android:textSize="15sp"
-                android:id="@+id/csesyl"
+                android:id="@+id/bussyl"
                 android:background="#80CBC4"
                 android:backgroundTint="#B2DFDB"
                 android:gravity="center_vertical"/>

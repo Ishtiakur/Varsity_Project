@@ -2,8 +2,12 @@ package com.example.shobojit.siuapp.Home.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -21,15 +25,14 @@ public class Academic_Calender extends AppCompatActivity {
         setContentView(R.layout.activity_academic__calender);
         wv= (WebView) findViewById(R.id.acwebview);
         cn=this;
+        if(!isNetworkAvailable()) {
+            Snackbar.make(findViewById(R.id.acwebview), "No Internet Connection", Snackbar.LENGTH_LONG).show();
+        }
         startWebView(url);
 
     }
     //WebView wv;
     private void startWebView(String url) {
-
-        //Create new webview Client to show progress dialog
-        //When opening a url or click on link
-
         wv.setWebViewClient(new WebViewClient() {
             /*ProgressDialog progressDialog;*/
              BusyDialog bd;
@@ -94,21 +97,28 @@ public class Academic_Calender extends AppCompatActivity {
 	    wv.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
 	    wv.setScrollbarFadingEnabled(false);
 	    wv.getSettings().setBuiltInZoomControls(true);
+        wv.getSettings().setAppCacheMaxSize( 5 * 1024 * 1024 );
+        wv.getSettings().setAppCachePath( cn.getCacheDir().getAbsolutePath() );
+        wv.getSettings().setAllowFileAccess( true );
+        wv.getSettings().setAppCacheEnabled( true );
+        wv.getSettings().setCacheMode( WebSettings.LOAD_DEFAULT );
 
 
-	    /*
-	     String summary = "<html><body>You scored <b>192</b> points.</body></html>";
-         webview.loadData(summary, "text/html", null);
-	     */
-
+        // loading offline
+        if (!isNetworkAvailable() ) {
+            wv.getSettings().setCacheMode( WebSettings.LOAD_CACHE_ELSE_NETWORK );
+        }
         //Load url in webview
         wv.loadUrl(url);
+    }
 
-
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService( CONNECTIVITY_SERVICE );
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     // Open previous opened link from history on webview when back button pressed
-
     @Override
     // Detect when the back button is pressed
     public void onBackPressed() {

@@ -367,10 +367,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         else if(menuitem==R.id.calender) {
-            if(haveNetworkConnection()==false)
-              Snackbar.make(findViewById(R.id.toolbar),"No Internet Connection",Snackbar.LENGTH_LONG).show();
+           /* if(haveNetworkConnection()==false)
+
                //AlertMessage.showMessage(con,R.drawable.alertpic,"Alert","No Internet Connection");
-            else
+            else*/
                StartActivity.toActivity(MainActivity.this, Academic_Calender.class);
         }
 

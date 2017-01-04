@@ -54,8 +54,8 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
     FloatingActionButton fab,fab_man,fab_exit;
     Animation fab_open,fab_clos,fab_rotate,fab_rotate_back;
 
-    private float[] yData = {45.6f, 40.15f, 30.12f, 56.55f};
-    private String[] xData = {"School of Engineering", "School of Laws" , "School of Humanities" , "School of Business"};
+    private float[] yData = {25.6f, 27.15f, 20.12f, 28.25f};
+    private String[] xData = {"School of Engineering : 25.6%", "School of Laws :27.15%", "School of Humanities : 20.12%" , "School of Business : 28.25%"};
 
     View v;
     boolean isOpen =false;
@@ -183,11 +183,11 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
                 //Entry, x: 0.0 y: 56.55 yello
                 //Entry, x: 0.0 y: 30.12 green
                 int i= 0;
-                if(res.equalsIgnoreCase("Entry, x: 0.0 y: 40.15")){
+                if(res.equalsIgnoreCase("Entry, x: 0.0 y: 25.6")){
                     i=0;
-                }else if(res.equalsIgnoreCase("Entry, x: 0.0 y: 45.6")){
+                }else if(res.equalsIgnoreCase("Entry, x: 0.0 y: 27.15")){
                     i=1;
-                }else if(res.equalsIgnoreCase("Entry, x: 0.0 y: 56.55")){
+                }else if(res.equalsIgnoreCase("Entry, x: 0.0 y: 20.12")){
                     i=2;
                 }else {
                     i=3;
