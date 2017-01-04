@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,74 +34,54 @@ import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Cse_Teacher_Detail extends AppCompatActivity {
+public class Llb_Teacher_Detail extends AppCompatActivity {
     Toolbar tl ;
     TeacherJson teacherJson;
     CatLoadingView mView;
     SharedPreferences preferences;
     Context cn;
-    ListView csefaclist;
+    ListView llbfaclist;
     private String link="https://firebasestorage.googleapis.com/v0/b/siuapp-ea105.appspot.com/o/teacher_detail.txt?alt=media&token=2a76dbdd-86fe-43ba-80fd-1f31bfaf9165";
     private RequestQueue req;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cse__teacher__detail);
+        setContentView(R.layout.activity_llb__teacher__detail);
         cn = this;
         mView = new CatLoadingView();
         mView.show(getSupportFragmentManager(),"Loading.........");
         Toolbar();
-        csefaclist = (ListView) findViewById(R.id.csefaclist);
+       llbfaclist = (ListView) findViewById(R.id.llbfaclist);
         req = Volley.newRequestQueue(this);
         preferences = getSharedPreferences("JsonData",cn.MODE_PRIVATE);
         if(!haveNetworkConnection()){
-            String res = preferences.getString("csefaculty","null");
+            String res = preferences.getString("llbfaculty","null");
             if(!res.equals("null")) {
                 Gson gson = new Gson();
                 teacherJson = gson.fromJson(res, TeacherJson.class);
-                csefaclist.setAdapter(new TList(cn, teacherJson.getCse()));
+                llbfaclist.setAdapter(new TList(cn, teacherJson.getLaw()));
                 if(mView!=null){
                     mView.dismiss();
                 }
             }else {
-                Snackbar.make(findViewById(R.id.csefactol),"No Internet Connection",Snackbar.LENGTH_LONG)
+                Snackbar.make(findViewById(R.id.llbfactol),"No Internet Connection",Snackbar.LENGTH_LONG)
                         .show();
             }
         }else{
             netWork();
         }
-
     }
 
-    void netWork(){
-        JsonObjectRequest jsr = new JsonObjectRequest(Request.Method.GET, link, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                String result = response.toString();
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("csefaculty",result);
-                editor.commit();
-                Gson gson = new Gson();
-                teacherJson = gson.fromJson(result,TeacherJson.class);
-                csefaclist.setAdapter(new TList(cn, teacherJson.getCse()));
-                if(mView!=null){
-                    mView.dismiss();
-                }
-
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-        req.add(jsr);
-
+    void Toolbar (){
+        tl= (Toolbar) findViewById(R.id.llbfactol);
+        setSupportActionBar(tl);
+        getSupportActionBar().setTitle("Faculty Members");
+        if(getSupportActionBar()!=null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
-
-
 
     private boolean haveNetworkConnection() {
         boolean haveConnectedWifi = false;
@@ -118,15 +99,28 @@ public class Cse_Teacher_Detail extends AppCompatActivity {
         return haveConnectedWifi || haveConnectedMobile;
     }
 
-
-    void Toolbar (){
-        tl= (Toolbar) findViewById(R.id.csefactol);
-        setSupportActionBar(tl);
-        getSupportActionBar().setTitle("Faculty Members");
-        if(getSupportActionBar()!=null){
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
+    void netWork(){
+        JsonObjectRequest jsr = new JsonObjectRequest(Request.Method.GET, link, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.i("S",response.toString());
+                String result = response.toString();
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("llbfaculty",result);
+                editor.commit();
+                Gson gson = new Gson();
+                teacherJson = gson.fromJson(result,TeacherJson.class);
+               llbfaclist.setAdapter(new TList(cn, teacherJson.getLaw()));
+                if(mView!=null){
+                    mView.dismiss();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+        req.add(jsr);
     }
 
 
@@ -140,18 +134,18 @@ public class Cse_Teacher_Detail extends AppCompatActivity {
 
     class TList extends BaseAdapter {
         private Context cn;
-        List<TeacherJson.CseBean> cse;
-        public TList(Context cn, List<TeacherJson.CseBean> cse) {
+        List<TeacherJson.LawBean> llb;
+        public TList(Context cn, List<TeacherJson.LawBean> bba) {
             this.cn = cn;
-            this.cse=cse;
+            this.llb=bba;
         }
         @Override
         public int getCount() {
-            return cse.size();
+            return llb.size();
         }
         @Override
         public Object getItem(int position) {
-            return cse.get(position);
+            return llb.get(position);
         }
         @Override
         public long getItemId(int position) {
@@ -167,7 +161,7 @@ public class Cse_Teacher_Detail extends AppCompatActivity {
             TextView designation = (TextView) convertView.findViewById(R.id.tdesignation);
             TextView phone = (TextView) convertView.findViewById(R.id.tphone);
             CircleImageView cr = (CircleImageView) convertView.findViewById(R.id.timg);
-            TeacherJson.CseBean c = cse.get(position);
+            TeacherJson.LawBean c = llb.get(position);
             Glide.with(cn).load(c.getImage()).placeholder(R.drawable.male).dontAnimate().into(cr);
 
             name.setText(c.getName());
@@ -178,4 +172,6 @@ public class Cse_Teacher_Detail extends AppCompatActivity {
             return convertView;
         }
     }
+
+
 }

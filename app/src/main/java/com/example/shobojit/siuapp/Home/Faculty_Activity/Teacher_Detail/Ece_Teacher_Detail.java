@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,7 +41,7 @@ public class Ece_Teacher_Detail extends AppCompatActivity {
     SharedPreferences preferences;
     Context cn;
     ListView ecefaclist;
-    private String link="https://firebasestorage.googleapis.com/v0/b/siuapp-ea105.appspot.com/o/teacher_detail.txt?alt=media&token=1da0526f-9f45-4d06-92a2-0ba90f945b4c";
+    private String link="https://firebasestorage.googleapis.com/v0/b/siuapp-ea105.appspot.com/o/teacher_detail.txt?alt=media&token=2a76dbdd-86fe-43ba-80fd-1f31bfaf9165";
     private RequestQueue req;
 
     @Override
@@ -51,7 +52,7 @@ public class Ece_Teacher_Detail extends AppCompatActivity {
         mView = new CatLoadingView();
         mView.show(getSupportFragmentManager(),"Loading.........");
         Toolbar();
-        ecefaclist = (ListView) findViewById(R.id.csefaclist);
+        ecefaclist = (ListView) findViewById(R.id.ecefaclist);
         req = Volley.newRequestQueue(this);
         preferences = getSharedPreferences("JsonData",cn.MODE_PRIVATE);
         if(!haveNetworkConnection()){
@@ -64,7 +65,7 @@ public class Ece_Teacher_Detail extends AppCompatActivity {
                     mView.dismiss();
                 }
             }else {
-                Snackbar.make(findViewById(R.id.csefactol),"No Internet Connection",Snackbar.LENGTH_LONG)
+                Snackbar.make(findViewById(R.id.ecefactol),"No Internet Connection",Snackbar.LENGTH_LONG)
                         .show();
             }
         }else{
@@ -105,6 +106,7 @@ public class Ece_Teacher_Detail extends AppCompatActivity {
         JsonObjectRequest jsr = new JsonObjectRequest(Request.Method.GET, link, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.i("S",response.toString());
                 String result = response.toString();
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("ecefaculty",result);
@@ -115,17 +117,13 @@ public class Ece_Teacher_Detail extends AppCompatActivity {
                 if(mView!=null){
                     mView.dismiss();
                 }
-
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
             }
         });
         req.add(jsr);
-
     }
 
 
@@ -171,7 +169,7 @@ public class Ece_Teacher_Detail extends AppCompatActivity {
 
             name.setText(c.getName());
             designation.setText(c.getDesignation());
-            phone.setText(c.getMob());
+            phone.setText("Phone: "+c.getMob());
 
 
             return convertView;

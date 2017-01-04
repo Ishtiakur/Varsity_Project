@@ -18,6 +18,9 @@
             android:backgroundTint="#B2DFDB"
             android:gravity="center_vertical"
             android:layout_height="wrap_content">
+            <android.support.v4.widget.Space
+                android:layout_width="3dp"
+                android:layout_height="wrap_content" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/timg"
@@ -27,7 +30,7 @@
                 app:civ_border_width="2dp"
                 app:civ_border_color="#fffcfc" />
             <android.support.v4.widget.Space
-                android:layout_width="3dp"
+                android:layout_width="5dp"
                 android:layout_height="wrap_content" />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,11 +43,8 @@
                     android:text="Name"
                     android:id="@+id/tname"
                     android:textSize="15sp"
-                    android:textColor="#413e3e"
-
+                    android:textColor="#000"
                     android:textStyle="bold"
-                    android:background="#009688"
-                    android:backgroundTint="#4DB6AC"
                     android:layout_height="wrap_content" />
 
                 <android.support.v4.widget.Space
@@ -55,10 +55,8 @@
                 android:layout_width="wrap_content"
                 android:text="Designation"
                 android:textSize="15sp"
-                    android:textColor="#413e3e"
+                    android:textColor="#000"
                     android:textStyle="bold"
-                    android:background="#009688"
-                    android:backgroundTint="#4DB6AC"
                 android:id="@+id/tdesignation"
                 android:layout_height="wrap_content" />
 
@@ -70,10 +68,8 @@
                 android:layout_width="wrap_content"
                 android:text="Phone"
                 android:textSize="15sp"
-                    android:textColor="#413e3e"
+                    android:textColor="#000"
                     android:textStyle="bold"
-                    android:background="#009688"
-                    android:backgroundTint="#4DB6AC"
                 android:id="@+id/tphone"
                 android:layout_height="wrap_content" />
             </LinearLayout>

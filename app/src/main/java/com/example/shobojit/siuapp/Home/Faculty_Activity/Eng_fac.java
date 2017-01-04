@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.shobojit.siuapp.Home.Faculty_Activity.Teacher_Detail.Cse_Teacher_Detail;
+import com.example.shobojit.siuapp.Home.Faculty_Activity.Teacher_Detail.Ece_Teacher_Detail;
 import com.example.shobojit.siuapp.Home.Syllabus_Activity.Cse_syl;
 import com.example.shobojit.siuapp.Home.Syllabus_Activity.Ece_syl;
 import com.example.shobojit.siuapp.Home.lab.cse_lab;
@@ -65,7 +66,9 @@ public class Eng_fac extends AppCompatActivity {
             @Override
             public void onClick(View v) {startActivity(new Intent(cn, Cse_Teacher_Detail.class));}
         });
-
+      ecefac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {startActivity(new Intent(cn, Ece_Teacher_Detail.class));}});
 
     }
 

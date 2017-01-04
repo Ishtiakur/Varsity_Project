@@ -49,7 +49,10 @@
         <activity android:name=".Home.lab.cse_lab" />
         <activity android:name=".Home.lab.ece_lab" />
         <activity android:name=".Home.Faculty_Activity.Teacher_Detail.Cse_Teacher_Detail" />
-        <activity android:name=".Home.Faculty_Activity.Teacher_Detail.Ece_Teacher_Detail"></activity>
+        <activity android:name=".Home.Faculty_Activity.Teacher_Detail.Ece_Teacher_Detail" />
+        <activity android:name=".Home.Faculty_Activity.Teacher_Detail.Eng_Teacher_Detail" />
+        <activity android:name=".Home.Faculty_Activity.Teacher_Detail.Bba_Teacher_Detail" />
+        <activity android:name=".Home.Faculty_Activity.Teacher_Detail.Llb_Teacher_Detail"></activity>
     </application>
 
 </manifest>
