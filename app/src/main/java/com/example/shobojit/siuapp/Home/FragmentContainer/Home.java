@@ -166,17 +166,6 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
             @Override
             public void onValueSelected(Entry e, Highlight h) {
 
-
-               /* int pos1 = e.toString().indexOf("(sum): ");
-                String total = e.toString().substring(pos1 );
-
-                for(int i = 0; i < yData.length; i++){
-                    if(yData[i] == Float.parseFloat(total)){
-                        pos1 = i;
-                        break;
-                    }
-                }
-                String statistic = xData[pos1 + 1];*/
                 String res =e.toString();
                 //Entry, x: 0.0 y: 40.15 red
                 //Entry, x: 0.0 y: 45.6 blue
@@ -298,11 +287,11 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
         HashMap<String,Integer> file_maps = new HashMap<String, Integer>();
         file_maps.put("SIU Garden", R.drawable.siu_garden);
         file_maps.put("SIU Main Gate",R.drawable.s2);
-        file_maps.put("Physics Olympiad ",R.drawable.physics1);
+        file_maps.put("Physics Olympiad ",R.drawable.physics2);
         file_maps.put("Sylhet International University",R.drawable.campus);
         file_maps.put("SIU Hostel",R.drawable.hostel);
         file_maps.put("1st Convocation of SIU ",R.drawable.ca);
-        file_maps.put("Physics Olympiad ",R.drawable.physics2);
+        file_maps.put("Physics Olympiad at Siu ",R.drawable.physics1);
         file_maps.put("SIU Campus", R.drawable.s5);
          for(String name : file_maps.keySet()){
             TextSliderView textSliderView = new TextSliderView(getContext());

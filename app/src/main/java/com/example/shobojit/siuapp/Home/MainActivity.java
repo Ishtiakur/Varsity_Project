@@ -30,6 +30,7 @@ import com.example.shobojit.siuapp.Home.FragmentContainer.Admission;
 import com.example.shobojit.siuapp.Home.FragmentContainer.American_corner;
 import com.example.shobojit.siuapp.Home.FragmentContainer.Contact;
 import com.example.shobojit.siuapp.Home.FragmentContainer.Home;
+import com.example.shobojit.siuapp.Home.FragmentContainer.Library;
 import com.example.shobojit.siuapp.Home.FragmentContainer.School_Fragment;
 import com.example.shobojit.siuapp.R;
 
@@ -263,6 +264,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    public void loadLibrary(){
+        FragIndex=7;
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frame,new Library())
+                        .addToBackStack("Library Fragment")
+                        .commit();
+                getSupportActionBar().setTitle("SIU Library");
+            }
+        };
+        if(runnable!=null){
+            hand.post(runnable);
+        }
+    }
+
+
     public void loadFacilites(){
         FragIndex=11;
         Runnable run =new Runnable() {
@@ -345,6 +364,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if(menuitem==R.id.admission){
             if(FragIndex!=4)
                 LoadAdmission();
+        }
+        else if(menuitem==R.id.library){
+            if(FragIndex!=7)
+                loadLibrary();
         }
 
         else if(menuitem==R.id.website){

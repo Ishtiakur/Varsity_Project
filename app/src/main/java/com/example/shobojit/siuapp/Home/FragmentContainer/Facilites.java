@@ -23,8 +23,8 @@ public class Facilites extends Fragment {
         hos= (SimpleDraweeView) v.findViewById(R.id.hostel);
         hos.setImageURI(Uri.parse("res:/"+R.drawable.hostel));
 
-        campus= (SimpleDraweeView) v.findViewById(R.id.campus);
-        campus.setImageURI(Uri.parse("res:/"+R.drawable.campus));
+     /*   campus= (SimpleDraweeView) v.findViewById(R.id.campus);
+        campus.setImageURI(Uri.parse("res:/"+R.drawable.campus));*/
         return v;
     }
 }

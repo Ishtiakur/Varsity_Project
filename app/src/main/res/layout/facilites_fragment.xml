@@ -31,12 +31,11 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:text="Environment"/>
-                <com.facebook.drawee.view.SimpleDraweeView
+                <com.flaviofaria.kenburnsview.KenBurnsView
+                    android:id="@+id/image"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    fresco:placeholderImage="@drawable/placeholder"
-                    android:scaleType="fitXY"
-                    android:id="@+id/campus"/>
+                    android:layout_height="280dp"
+                    android:src="@drawable/campus" />
                 <TextView
                     android:textSize="15sp"
                     android:padding="2dp"

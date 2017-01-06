@@ -41,7 +41,8 @@ public class Ece_Teacher_Detail extends AppCompatActivity {
     SharedPreferences preferences;
     Context cn;
     ListView ecefaclist;
-    private String link="https://firebasestorage.googleapis.com/v0/b/siuapp-ea105.appspot.com/o/teacher_detail.txt?alt=media&token=2a76dbdd-86fe-43ba-80fd-1f31bfaf9165";
+    // private String link="https://firebasestorage.googleapis.com/v0/b/siuapp-ea105.appspot.com/o/teacher_detail.txt?alt=media&token=885e0155-b4b8-4ec3-a87a-66fae1bb15ad";
+    private String link = "http://javaloverbd.000webhostapp.com/teacher_detail.txt";
     private RequestQueue req;
 
     @Override

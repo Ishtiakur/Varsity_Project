@@ -76,5 +76,8 @@ dependencies {
 
 
     compile 'com.github.mancj:SlideUp-Android:1.0-beta'
+
+
+    compile 'com.flaviofaria:kenburnsview:1.0.7'
 }
 

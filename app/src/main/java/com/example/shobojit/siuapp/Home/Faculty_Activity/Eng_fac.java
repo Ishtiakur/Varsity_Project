@@ -15,6 +15,7 @@ import com.example.shobojit.siuapp.Home.Faculty_Activity.Teacher_Detail.Ece_Teac
 import com.example.shobojit.siuapp.Home.Syllabus_Activity.Cse_syl;
 import com.example.shobojit.siuapp.Home.Syllabus_Activity.Ece_syl;
 import com.example.shobojit.siuapp.Home.lab.cse_lab;
+import com.example.shobojit.siuapp.Home.lab.ece_lab;
 import com.example.shobojit.siuapp.R;
 
 public class Eng_fac extends AppCompatActivity {
@@ -46,7 +47,7 @@ public class Eng_fac extends AppCompatActivity {
             public void onClick(View v) {
        new Runnable(){
                     @Override
-                    public void run() {startActivity(new Intent(cn,cse_lab.class).putExtra("Toolbar","Cse Lab"));}
+                    public void run() {startActivity(new Intent(cn,cse_lab.class).putExtra("Toolbar","CSE Lab"));}
                 }.run();}
         });
        csilab.setOnClickListener(new View.OnClickListener() {
@@ -54,9 +55,15 @@ public class Eng_fac extends AppCompatActivity {
             public void onClick(View v) {
         new Runnable(){
                     @Override
-                    public void run() {startActivity(new Intent(cn,cse_lab.class).putExtra("Toolbar","Csi Lab"));}
+                    public void run() {startActivity(new Intent(cn,cse_lab.class).putExtra("Toolbar","CSI Lab"));}
                 }.run();}
         });
+        ecelab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {startActivity(new Intent(cn,ece_lab.class));
+            }
+        });
+
 
        //Faculty Members
       csefac.setOnClickListener(new View.OnClickListener() {
@@ -84,9 +91,11 @@ public class Eng_fac extends AppCompatActivity {
         csefac = (Button) findViewById(R.id.csefac);
         csifac = (Button) findViewById(R.id.csifac);
         ecefac = (Button) findViewById(R.id.ecefac);
+
         csesyl= (Button) findViewById(R.id.csesyl);
         csisyl= (Button) findViewById(R.id.csisyl);
         ecesyl= (Button) findViewById(R.id.ecesyl);
+
         cselab= (Button) findViewById(R.id.cselab);
         csilab= (Button) findViewById(R.id.csilab);
         ecelab= (Button) findViewById(R.id.ecelab);
