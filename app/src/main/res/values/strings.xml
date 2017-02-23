@@ -64,4 +64,10 @@
 <string name="activity">
         Students can participate in various extra curricular activities through various clubs.
     </string>
+    <string name="cse_425">CSE-425</string>
+    <string name="first_year_semester_i">First Year: Semester I</string>
+    <string name="course_no">Course No.</string>
+    <string name="cse_102">CSE-102</string>
+    <string name="computer_fundamentals_labs">Computer Fundamentals Labs</string>
+    <string name="extra_curricular_activities">Extra Curricular Activities</string>
 </resources>

@@ -289,7 +289,7 @@ public class Home extends Fragment  implements  BaseSliderView.OnSliderClickList
         file_maps.put("SIU Main Gate",R.drawable.s2);
         file_maps.put("Physics Olympiad ",R.drawable.physics2);
         file_maps.put("Sylhet International University",R.drawable.campus);
-        file_maps.put("SIU Hostel",R.drawable.hostel);
+        file_maps.put("Ambassador Bernicat at SIU",R.drawable.usa);
         file_maps.put("1st Convocation of SIU ",R.drawable.ca);
         file_maps.put("Physics Olympiad at Siu ",R.drawable.physics1);
         file_maps.put("SIU Campus", R.drawable.s5);

@@ -66,9 +66,9 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="  English Debating Club"
+                android:text="  English Language Club"
                 android:textSize="15sp"
-
+                android:id="@+id/engdabat"
                 android:background="#80CBC4"
                 android:backgroundTint="#B2DFDB"
                 android:gravity="center_vertical"/>

@@ -6,7 +6,7 @@
     android:id="@+id/activity_bus_fac"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.example.shobojit.siuapp.Home.Faculty_Activity.Buc_fac">
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"

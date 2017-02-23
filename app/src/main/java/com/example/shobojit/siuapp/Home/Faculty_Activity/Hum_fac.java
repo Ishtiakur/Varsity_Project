@@ -9,11 +9,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.shobojit.siuapp.Home.Faculty_Activity.Teacher_Detail.Eng_Teacher_Detail;
+import com.example.shobojit.siuapp.Home.Faculty_Activity.Teacher_Detail.engdbating;
 import com.example.shobojit.siuapp.R;
 
 public class Hum_fac extends AppCompatActivity {
 Toolbar tl;
-    Button humfac;
+    Button humfac,engdbat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,14 @@ Toolbar tl;
                 startActivity(new Intent(getApplicationContext(), Eng_Teacher_Detail.class));
             }
         });
+
+        engdbat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), engdbating.class));
+
+            }
+        });
     }
 
     void Initialization(){
@@ -36,6 +45,7 @@ Toolbar tl;
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         humfac = (Button) findViewById(R.id.humfac);
+        engdbat= (Button) findViewById(R.id.engdabat);
 
 
     }

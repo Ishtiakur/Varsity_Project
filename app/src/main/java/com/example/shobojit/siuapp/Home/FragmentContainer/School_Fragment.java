@@ -100,7 +100,7 @@ public class School_Fragment extends Fragment {
         imghum = (SimpleDraweeView) v.findViewById(R.id.humanaties);
         imgeng.setImageURI(Uri.parse("res:/" + R.drawable.school1));
         imglaw.setImageURI(Uri.parse("res:/" + R.drawable.school2));
-        imgbus.setImageURI(Uri.parse("res:/" + R.drawable.school3));
-        imghum.setImageURI(Uri.parse("res:/" + R.drawable.school4));
+        imgbus.setImageURI(Uri.parse("res:/" + R.drawable.school4));
+        imghum.setImageURI(Uri.parse("res:/" + R.drawable.school3));
     }
 }

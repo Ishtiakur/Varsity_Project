@@ -4,7 +4,7 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_ece_lab"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#e9f5f4f4"
     android:orientation="vertical"
     tools:context="com.example.shobojit.siuapp.Home.lab.ece_lab">
