@@ -9,17 +9,17 @@
 
             />
         <item
-            android:id="@+id/vcmenu"
-            android:title="Vice Chancellor"
+            android:id="@+id/authomenu"
+            android:title="Authority"
             android:icon="@drawable/per"
 
             />
-        <item
+        <!--<item
             android:id="@+id/chairmanmenu"
             android:title="Chairman"
             android:icon="@drawable/per"
 
-            />
+            />-->
 
         <item
             android:id="@+id/admission"

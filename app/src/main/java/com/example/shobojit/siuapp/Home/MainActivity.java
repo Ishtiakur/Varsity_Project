@@ -22,6 +22,7 @@ import android.widget.FrameLayout;
 import com.aapbd.appbajarlib.nagivation.StartActivity;
 import com.aapbd.appbajarlib.notification.AlertMessage;
 import com.example.shobojit.siuapp.Home.Activity.Academic_Calender;
+import com.example.shobojit.siuapp.Home.FragmentContainer.Authority;
 import com.example.shobojit.siuapp.Home.FragmentContainer.Chairman;
 import com.example.shobojit.siuapp.Home.FragmentContainer.Chancellor;
 import com.example.shobojit.siuapp.Home.FragmentContainer.Facilites;
@@ -146,18 +147,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    public void LoadVC(){
+    public void LoadAuth(){
         FragIndex=2;
         if(dl.isDrawerOpen(GravityCompat.START)){
             dl.closeDrawer(GravityCompat.START);
         }
-        getSupportActionBar().setTitle("Vice Chancellor");
+        getSupportActionBar().setTitle("Authority");
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.frame,new Chancellor(),"Chancellor Fragment")
+                        .replace(R.id.frame,new Authority(),"Authority Fragment")
                         .commit();
             }
         };
@@ -204,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     public void LoadAdmission(){
-        FragIndex=4;
+        FragIndex=3;
         if(dl.isDrawerOpen(GravityCompat.START)){
             dl.closeDrawer(GravityCompat.START);
         }
@@ -248,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     public void loadSchool(){
-        FragIndex=5;
+        FragIndex=4;
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
@@ -352,17 +353,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if(FragIndex!=1)
                 LoadHomeFragment();
         }
-        else if(menuitem==R.id.vcmenu){
+        else if(menuitem==R.id.authomenu){
             if(FragIndex!=2)
-                LoadVC();
+                LoadAuth();
         }
-        else if(menuitem==R.id.chairmanmenu){
+     /*   else if(menuitem==R.id.chairmanmenu){
             if(FragIndex!=3)
                 LoadChairman();
-        }
+        }*/
 
         else if(menuitem==R.id.admission){
-            if(FragIndex!=4)
+            if(FragIndex!=3)
                 LoadAdmission();
         }
         else if(menuitem==R.id.library){
@@ -380,7 +381,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         else if(menuitem==R.id.school) {
-            if(FragIndex!=5)
+            if(FragIndex!=4)
             loadSchool();
         }
 

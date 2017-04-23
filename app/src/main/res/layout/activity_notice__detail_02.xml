@@ -14,6 +14,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_centerInParent="true"
+        android:background="#f5181717"
         android:id="@+id/noticeImage"
         android:layout_height="match_parent" />
 </LinearLayout>

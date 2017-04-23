@@ -6,7 +6,7 @@
     android:id="@+id/activity_engdbating"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#e9f5f4f4"
+    android:background="#ccded8d8"
     tools:context="com.example.shobojit.siuapp.Home.Faculty_Activity.Teacher_Detail.engdbating"
     android:orientation="vertical">
     <android.support.v7.widget.Toolbar
@@ -41,6 +41,9 @@
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
             <android.support.v7.widget.CardView
             android:layout_width="match_parent"
@@ -59,7 +62,9 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
-
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -76,7 +81,9 @@
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
-
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -94,7 +101,9 @@
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
-
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -106,7 +115,6 @@
                     <com.facebook.drawee.view.SimpleDraweeView
                         fresco:placeholderImage="@drawable/placeholder"
                         android:id="@+id/lng5"
-                        android:scaleType="centerCrop"
                         android:layout_width="match_parent"
                         android:layout_height="250dp" />
 
